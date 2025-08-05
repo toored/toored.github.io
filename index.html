@@ -1,10 +1,677 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <div style="text-align: center">
-      <h1>Hello World</h1>
-      <p>I'm hosted with GitHub Pages.</p>
-      <p>Fred Wang</p>
-    </div>
-  </body>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧磨坊 | 万事皆有规律，智慧无处不在</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8d6e63;      /* 陶土色 */
+            --secondary: #5d4037;    /* 深褐色 */
+            --light: #efebe9;        /* 米白色 */
+            --accent: #a1887f;       /* 浅陶色 */
+            --text: #4e342e;         /* 深棕色 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.8;
+            color: var(--text);
+            background-color: #faf5f0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d7ccc8' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 头部 - 禅意风格 */
+        header {
+            background: linear-gradient(rgba(93, 64, 55, 0.85), rgba(93, 64, 55, 0.9)), 
+                        url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center 40%;
+            color: var(--light);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .site-title {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: inline-block;
+        }
+
+        .site-title::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 3px;
+            background: var(--light);
+            margin: 20px auto;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--light);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+
+        /* 导航 */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        .nav-link {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* 内容区域 */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto;
+        }
+
+        /* 关于区域 */
+        #about {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            margin: -50px auto 0;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            text-indent: 2em;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 智慧卡片 */
+        #insights {
+            background-color: transparent;
+        }
+
+        .insights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-body p {
+            margin-bottom: 20px;
+        }
+
+        /* 项目展示 */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .project-tag {
+            background: var(--light);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        /* 联系区域 */
+        #contact {
+            background: linear-gradient(to bottom, #faf5f0, #e6d5c9);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: translateY(-8px);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--secondary);
+            color: var(--light);
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .wisdom-quote {
+            font-style: italic;
+            margin: 25px 0;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .wisdom-quote::before, .wisdom-quote::after {
+            content: """;
+            font-size: 2rem;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .wisdom-quote::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .wisdom-quote::after {
+            bottom: -25px;
+            right: 0;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .site-title {
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .site-title {
+                font-size: 2.8rem;
+                letter-spacing: 5px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">智慧磨坊</h1>
+            <p class="tagline">万事皆有规律，智慧无处不在</p>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- 导航 -->
+    <nav>
+        <div class="nav-container">
+            <a href="#about" class="nav-link">关于磨坊</a>
+            <a href="#insights" class="nav-link">智慧箴言</a>
+            <a href="#projects" class="nav-link">知识结晶</a>
+            <a href="#contact" class="nav-link">联系交流</a>
+        </div>
+    </nav>
+
+    <!-- 关于区域 -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">关于智慧磨坊</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>智慧磨坊是一个探索世界运行规律的知识工坊。我们相信，如同磨盘能将谷物研磨成粉，持续的思考也能将日常经验提炼为智慧精华。万物皆有其道，从自然界的生长规律到人类社会的运行机制，都蕴含着值得深思的智慧。</p>
+                    <p>在这里，我们通过跨学科的研究与实践，不断磨砺思想的锋芒。每一次思考都是对智慧的打磨，每一次探索都是对规律的追寻。磨坊不仅产出知识，更培养洞察事物本质的能力。</p>
+                    <p>正如古老的磨盘需要水流驱动，智慧的磨坊也需要知识的流动与思想的碰撞。我们欢迎所有追求真理、热爱思考的同行者，共同研磨人生的智慧之粉。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534643960519-11ad79bc19df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="智慧磨坊理念">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 智慧箴言 -->
+    <section id="insights">
+        <div class="container">
+            <h2 class="section-title">智慧箴言</h2>
+            <div class="insights-container">
+                <div class="insight-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>自然之道</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>"万物并作，吾以观复。夫物芸芸，各复归其根。" - 老子《道德经》</p>
+                        <p>自然的循环往复蕴含着深刻的智慧。四季更替，草木枯荣，揭示着生命循环的永恒规律。观察自然，我们能学会顺应而非对抗，理解变化中的不变真理。</p>
+                        <p>如同溪流绕过岩石而非冲击，真正的智慧在于找到阻力最小的路径，在顺应中实现目标。</p>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>思维之磨</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>"学而不思则罔，思而不学则殆。" - 孔子《论语》</p>
+                        <p>思考如同磨盘，需要持续转动才能将粗糙的知识研磨成可用的智慧。学习与思考是相辅相成的过程，缺一不可。</p>
+                        <p>我们通过质疑、分析和连接不同的知识碎片，在思维的碰撞中产生新的洞见。每一次思考都是对认知边界的拓展，每一次反思都是对理解的深化。</p>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>规律之网</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>"道生一，一生二，二生三，三生万物。" - 老子《道德经》</p>
+                        <p>宇宙万物由简单到复杂，遵循着基本规律的演化。从微观粒子到宏观星系，从个体行为到社会变迁，都存在着可被认知的模式。</p>
+                        <p>认识这些模式，就是掌握了解读世界的密码。智慧的本质在于看到表象之下的联系，理解局部与整体的关系。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示 -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">知识结晶</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="规律探索项目">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">自然算法研究</h3>
+                        <p>从蜂群行为到神经网络，探索自然界中存在的优化算法及其在技术中的应用。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">自然计算</span>
+                            <span class="project-tag">仿生学</span>
+                            <span class="project-tag">算法优化</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                <span>代码仓库</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-book-open"></i>
+                                <span>研究报告</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="文化智慧项目">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">东方智慧与现代管理</h3>
+                        <p>将道家思想、禅宗智慧应用于现代组织管理和决策体系的研究与实践。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">管理哲学</span>
+                            <span class="project-tag">东方智慧</span>
+                            <span class="project-tag">决策系统</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                <span>代码仓库</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-book-open"></i>
+                                <span>研究报告</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="模式识别项目">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">社会现象模式图谱</h3>
+                        <p>通过大数据分析识别社会文化现象中的隐藏模式与演化规律，建立可视化知识图谱。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">数据分析</span>
+                            <span class="project-tag">社会计算</span>
+                            <span class="project-tag">知识图谱</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i>
+                                <span>代码仓库</span>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-book-open"></i>
+                                <span>研究报告</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">交流与合作</h2>
+            <div class="contact-content">
+                <p>智慧需要交流与碰撞，如同磨石需要谷物。欢迎志同道合者加入我们的探索之旅，共同研磨思想的颗粒，提炼智慧的精华。</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <span>GitHub 交流</span>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span>wisdom@mill.org</span>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <span>智慧磨坊社群</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>智慧磨坊</h3>
+                <p class="wisdom-quote">"真正的智慧不在于知道多少，而在于看清事物之间的连接"</p>
+            </div>
+            <p class="copyright">© 2023 智慧磨坊 | 万物皆有道 智慧本无涯</p>
+        </div>
+    </footer>
+</body>
 </html>
